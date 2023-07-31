@@ -1,0 +1,4 @@
+/*
+If any comman configration or web site relation configration comman variables is listed here.
+ 
+*/

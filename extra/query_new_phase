@@ -1,0 +1,273 @@
+NEW TABLE
+===========
+ss_address_zones , ss_vendors, ss_plant_user_relations
+
+
+QUERY
+======
+
+ALTER TABLE `ss_trucks`
+  DROP `contact_number`,
+  DROP `contact_email`,
+  DROP `contact_person`,
+  DROP `pan_number`,
+  DROP `bank_name`,
+  DROP `account_no`,
+  DROP `ifsc_code`,
+  DROP `account_holder_name`;
+
+
+ALTER TABLE `ss_trucks` ADD `vendor_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'vendors\'' AFTER `id`;
+
+
+ALTER TABLE `ss_truck_permits` CHANGE `name` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_truck_pollutions` CHANGE `name` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_truck_taxes` CHANGE `name` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_truck_insurances` CHANGE `name` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_truck_registrations` CHANGE `registration_no` `registration_no` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `name` `name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_trucks` CHANGE `truck_no` `truck_no` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_plants` DROP `supervisor_id`;
+
+ALTER TABLE `ss_plants` ADD `address_zone_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'address_zones\'' AFTER `id`;
+
+ALTER TABLE `ss_parties` ADD `address_zone_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'address_zones\'' AFTER `id`;
+
+
+
+ALTER TABLE `ss_petrol_pumps` CHANGE `address` `address_zone_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'address_zones\'';
+
+
+ALTER TABLE `ss_petrol_pumps`
+  DROP `city_id`,
+  DROP `state_id`,
+  DROP `country_id`;
+
+
+
+ALTER TABLE `ss_plants` CHANGE `balance_amount` `balance_amount` DECIMAL(15,2) NOT NULL;
+
+-------------------------------------------------------------------------------------------------------------------
+
+ALTER TABLE `ss_trips`
+  DROP `plant_address_id`,
+  DROP `party_destination_id`;
+
+
+ALTER TABLE `ss_trips` ADD `vendor_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'vendors\'' AFTER `party_id`;
+
+
+ALTER TABLE `ss_trips` CHANGE `advance_amount` `advance_amount` DECIMAL(15,2) NOT NULL, CHANGE `diesel_amount` `diesel_amount` DECIMAL(15,2) NOT NULL;
+
+ALTER TABLE `ss_plant_journal_lasers` CHANGE `amount` `amount` DECIMAL(15,2) NOT NULL;
+
+ALTER TABLE `ss_petrol_pump_journal_lasers` CHANGE `amount` `amount` DECIMAL(15,2) NOT NULL;
+
+
+ALTER TABLE `ss_trips` CHANGE `advance_amount` `advance_amount` BIGINT(20) NOT NULL, CHANGE `diesel_amount` `diesel_amount` BIGINT(20) NOT NULL; 
+
+
+
+ALTER TABLE `ss_categories` CHANGE `category_description` `category_description` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL; 
+
+ALTER TABLE `ss_items` CHANGE `item_description` `item_description` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL; 
+  
+
+ALTER TABLE `ss_vendors` CHANGE `contact_person` `contact_person` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_number` `contact_number` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_email` `contact_email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_plants` CHANGE `description` `description` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL; 
+
+
+ALTER TABLE `ss_parties` CHANGE `party_description` `party_description` TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `phone_number` `phone_number` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `email` `email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_petrol_pumps` CHANGE `contact_number` `contact_number` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_email` `contact_email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_person` `contact_person` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_trips` ADD `additional1` VARCHAR(255) NOT NULL AFTER `description`, ADD `additional2` VARCHAR(255) NOT NULL AFTER `additional1`, ADD `additional3` VARCHAR(255) NOT NULL AFTER `additional2`;
+
+
+ALTER TABLE `ss_trips` CHANGE `truck_owner` `truck_owner` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL; 
+
+
+ALTER TABLE `ss_trips` ADD `closed_at` TIMESTAMP NULL DEFAULT NULL AFTER `deleted_by`, ADD `closed_by` BIGINT(20) NULL DEFAULT NULL AFTER `closed_at`; 
+
+ALTER TABLE `ss_trips` CHANGE `closed_by` `closed_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\''; 
+
+ALTER TABLE `ss_trips` ADD `closing_reason` VARCHAR(255) NULL DEFAULT NULL AFTER `closed_by`; 
+
+
+ALTER TABLE `ss_plant_journal_lasers_edit_requests` ADD `requested_amount` BIGINT(20) NOT NULL AFTER `request_by`; 
+
+
+ALTER TABLE `ss_plant_journal_lasers_edit_requests` ADD `approval_reason` VARCHAR(255) NULL AFTER `approval_status`; 
+
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers_edit_requests` ADD `requested_amount` BIGINT(20) NOT NULL AFTER `request_by`; 
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers_edit_requests` ADD `approval_reason` VARCHAR(255) NULL AFTER `approval_status`; 
+
+
+ALTER TABLE `ss_plant_journal_lasers_edit_requests` ADD `actual_amount` BIGINT(20) NOT NULL AFTER `request_by`; 
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers_edit_requests` ADD `actual_amount` INT(20) NOT NULL AFTER `request_by`; 
+
+
+----------------------------------------------------------------------------------
+
+ALTER TABLE `ss_address_zones` ADD `title` VARCHAR(255) NOT NULL AFTER `longitude`
+
+
+ALTER TABLE `ss_trips` DROP `POD_file`;
+
+
+
+
+
+
+CREATE TABLE `ss_trip_POD` (
+  `id` bigint(20) NOT NULL,
+  `trip_id` bigint(20) NOT NULL COMMENT 'primary key of ''trips''',
+  `pod_file` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('Pending','Approved','Disapproved') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending',
+  `approved_by` bigint(20) DEFAULT NULL COMMENT 'primary key of ''users''',
+  `reason` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `ss_trip_POD`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `ss_trip_POD`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `ss_trip_POD` ADD `is_active` ENUM('Y','N') NOT NULL DEFAULT 'Y' COMMENT 'Y=yes, N=no' AFTER `status`;
+
+ALTER TABLE `ss_trip_POD` CHANGE `approved_by` `updated_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\'';
+
+ALTER TABLE `ss_plant_journal_lasers` ADD `approval_status` ENUM('Approved', 'Disapproved','Pending') NOT NULL DEFAULT 'Pending' AFTER `entry_by`;
+
+ALTER TABLE `ss_plant_journal_lasers` ADD `reason` VARCHAR(255) NULL AFTER `approval_status`;
+
+
+--------------------------------------------------------------------------------------
+
+ALTER TABLE `ss_trip_POD` ADD `remarks` VARCHAR(255) NULL DEFAULT NULL AFTER `updated_by`;
+
+ALTER TABLE `ss_trip_POD` CHANGE `status` `status` ENUM('Pending','OK CHALLAN','UNSTAMPED CHALLAN','STAMPED SHORT CHALLAN','UNSTAMPED SHORT CHALLAN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending';
+
+ALTER TABLE `ss_trip_POD` DROP `remarks`;
+
+ALTER TABLE `ss_trips` ADD `remarks` VARCHAR(255) NULL DEFAULT NULL AFTER `POD_uploaded_at`;
+
+
+ALTER TABLE `ss_trips` CHANGE `trip_status` `trip_status` ENUM('Awaiting','Running','Cancelled','Settled','Unsettled','Completed') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Awaiting' COMMENT '\'Awaiting\',\'Running\',\'Cancelled\',\'Settled\',\'Unsettled\',\'Completed\'';
+
+
+ALTER TABLE `ss_trips` ADD `current_challan_status` VARCHAR(255) NULL DEFAULT NULL AFTER `POD_status`;
+
+
+ALTER TABLE `ss_trips` ADD `bags` INT(11) NULL DEFAULT NULL AFTER `POD_uploaded_at`;
+
+
+ALTER TABLE `ss_trip_payment_managements` ADD `rate` INT(11) NULL DEFAULT NULL AFTER `tare_charge`;
+
+
+ALTER TABLE `ss_trip_payment_managements` ADD `short_bag_amount` FLOAT(10,2) NULL DEFAULT NULL AFTER `rate`;
+
+
+---------------------------------------- CHANGES 24_04_2019 ------------------------------------------------
+
+ALTER TABLE `ss_trips` CHANGE `additional1` `additional1` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `additional2` `additional2` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `additional3` `additional3` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+table bank and bank_branches
+
+
+ALTER TABLE `ss_vendors` CHANGE `bank_name` `bank_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'primary key of \'banks\'', CHANGE `ifsc_code` `ifsc_code` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'primary key of \'bank_branches\'';
+
+---------------------------------------------- CHANGES 14_05_2019 -----------------------------------------
+
+ALTER TABLE `ss_trip_POD` ADD `is_deleted` ENUM('Y','N') NOT NULL DEFAULT 'N' COMMENT 'Y=yes, N=no' AFTER `updated_at`, ADD `deleted_by` BIGINT(20) NULL COMMENT 'primary key of \'users\'' AFTER `is_deleted`, ADD `deleted_at` TIMESTAMP NULL AFTER `deleted_by`;
+
+
+ALTER TABLE `ss_trips` CHANGE `trip_status` `trip_status` ENUM('Awaiting','Cancelled','Completed','Running','Settled','Unsettled') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Awaiting' COMMENT '\'Awaiting\',\'Running\',\'Cancelled\',\'Settled\',\'Unsettled\',\'Completed\'';
+
+
+
+ALTER TABLE `ss_trips` CHANGE `quantity` `quantity` BIGINT(20) NOT NULL COMMENT 'in Metric Ton';
+
+-----------------------------------------------------------------------------------------------------------
+
+
+ALTER TABLE `ss_trips` ADD `trip_type` ENUM('Single','Multiple') NOT NULL DEFAULT 'Single' AFTER `id`;
+
+
+----------------------------------------------------------------------------------------------------------
+
+ALTER TABLE `ss_trips` ADD `bill_status` ENUM('Y','N') NOT NULL DEFAULT 'N' COMMENT 'Y=yes, N=no' AFTER `additional3`;
+
+
+
+
+CREATE TABLE `ss_trip_bills` (
+  `id` bigint(20) NOT NULL,
+  `trip_id` bigint(20) NOT NULL COMMENT 'primary key of ''trips''',
+  `vendor_id` bigint(20) DEFAULT NULL COMMENT 'primary key of ''vendors''',
+  `bill_no` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `challan_exps` bigint(20) DEFAULT NULL,
+  `tds` int(11) DEFAULT NULL,
+  `amount` float(15,2) NOT NULL,
+  `type` enum('C','D') NOT NULL COMMENT 'C = credited, D = debited',
+  `plant_id` bigint(20) DEFAULT NULL COMMENT 'primary key of ''plants''',
+  `petrol_pump_id` bigint(20) DEFAULT NULL COMMENT 'primary key of ''petrol_pumps''',
+  `truck_id` bigint(20) DEFAULT NULL COMMENT 'primary key of ''trucks''',
+  `extra_cash` float(15,2) DEFAULT NULL,
+  `extra_diesel` float(15,2) DEFAULT NULL,
+  `vendor_amount` float(15,2) DEFAULT NULL,
+  `narration` varchar(255) NOT NULL,
+  `created_by` bigint(20) NOT NULL COMMENT 'primary key of ''users''',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+ALTER TABLE `ss_trip_bills`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `ss_trip_bills`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `ss_trip_bills` CHANGE `amount` `amount` FLOAT(15,2) NULL DEFAULT NULL;
+
+ALTER TABLE `ss_trip_bills` ADD `updated_at` TIMESTAMP NULL DEFAULT NULL AFTER `created_at`;
+
+ALTER TABLE `ss_trip_bills` CHANGE `trip_id` `trip_id` VARCHAR(255) NOT NULL COMMENT 'primary key of \'trips\'';
+
+ALTER TABLE `ss_trip_bills` ADD `deleted_at` TIMESTAMP NULL DEFAULT NULL AFTER `updated_at`, ADD `deleted_by` BIGINT(20) NULL DEFAULT NULL AFTER `deleted_at`;
+
+ALTER TABLE `ss_trip_bills` ADD `bill_date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP AFTER `id`;
+
+ALTER TABLE `ss_trip_bills` CHANGE `trip_id` `trip_id` VARCHAR(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL COMMENT 'primary key of \'trips\'', CHANGE `bill_no` `bill_no` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_trip_bills` CHANGE `trip_id` `trip_id` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'primary key of \'trips\'', CHANGE `type` `type` ENUM('C','D') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'C = credited, D = debited', CHANGE `narration` `narration` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
+ALTER TABLE `ss_trip_bills` ADD `updated_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\'' AFTER `updated_at`;
+
+  
+
+

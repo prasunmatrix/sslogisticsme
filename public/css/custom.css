@@ -1,0 +1,315 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i'); 
+
+.loading-spiner-holder{position: fixed; z-index: 999; overflow: show; margin: auto; width:100%; left:0; text-align: center;}
+.align_right {text-align: right; padding-bottom:10px;}
+.spinner {height:100px; width:100px;}
+.button-link-holder a{color : #fff;}
+.submit-button-holder{text-align: right;}
+
+.navbar-nav > .user-menu > .dropdown-menu > .user-body a.btn_change_pass {background-color: #39b3c2; border-color: #367fa9; color:#fff!important; padding:10px 20px;}
+.navbar-nav > .user-menu > .dropdown-menu > .user-body a.btn_change_pass:hover {background-color: #2999a5;}
+
+.import_section { background-color: #fff; border-radius: 3px; border-top: 3px solid #d2d6de; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); margin-bottom: 20px; position: relative; width: 100%; padding:10px;}
+.import_section input[type="file"], .import_section button { float: left; }
+.import_section input[type="file"] { width:180px; margin-right:10px;}
+
+.sidebar-menu { white-space: normal!important;}
+.sidebar-menu > li > a {padding-left:35px;}
+.sidebar-menu > li > a i {position: absolute; left:15px; top:15px;}
+.sidebar-menu > li > a i.pull-right {left:auto; right:15px;}
+
+.active_checkbox label { float: left; margin-right:5px;}
+
+.bg-red, .callout.callout-danger, .alert-danger, .alert-error, .alert-success, .label-danger, .modal-danger .modal-body { display: block; width: auto; margin:10px;}
+.sidebar-collapse .sidebar-menu > li > a {padding-top:5px; padding-bottom:5px; min-height:35px;}
+.sidebar-collapse .sidebar-menu > li > a i {top:11px;}
+.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover > a span {padding:8px 5px 8px 15px; width:250px!important;}
+.sidebar-mini.sidebar-collapse .sidebar-menu > li:hover .treeview-menu {width:250px; top:35px;}
+
+.login-page { background:#fff;}
+
+.login-logo { padding:10px; text-align: center;}
+.login-box-body {border: 1px solid #ccc; background:#f0f0f0;}
+
+.small-box p { font-size:20px;}
+
+.loding-div{position: fixed; z-index: 9999; width: 100%;height:100%;background: rgba(0,0,0,0.999);}
+.loader {border: 16px solid #f3f3f3;border-radius: 50%;border-top: 16px solid #3498db;width: 120px;height: 120px;-webkit-animation: spin 2s linear infinite; /* Safari */animation: spin 2s linear infinite;text-align: center;}
+/* Safari */
+@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); }100% { -webkit-transform: rotate(360deg); }}
+@keyframes spin {0% { transform: rotate(0deg); }100% { transform: rotate(360deg); }}
+.loader{position:absolute;top:50%;left:50%;margin:-60px 0 0 -60px}
+
+.truckfrm .nav-tabs-custom {box-shadow: none;}
+
+.truckfrm .date { position: relative;}
+.truckfrm .date .input-group-addon {position: absolute; right:5px; top:34px; background: none; border:0px; padding:0px; width:20px;}
+.truckfrm input[type="file"] {height:auto;}
+
+
+.popuptruckfrm .nav-tabs-custom {box-shadow: none;}
+
+.popuptruckfrm .date { position: relative;}
+.popuptruckfrm .date .input-group-addon {position: absolute; right:5px; top:40px; background: none; border:0px; padding:0px; width:20px;}
+.popuptruckfrm input[type="file"] {height:auto;}
+
+
+.cashForm .date { position: relative;}
+.cashForm .date .input-group-addon {position: absolute; right:5px; top:10px; background: none; border:0px; padding:0px; width:20px;}
+.cashForm input[type="file"] {height:auto;}
+
+.submit-button-holder .btn-flat { 
+	margin-right:5px;
+}
+
+.section-heading { text-align: center; }
+.tripfrm .date .input-group-addon {position: absolute; right:5px; top:10px; background: none; border:0px; padding:0px; width:20px;}
+.tripfrm .date { position: relative;}
+.select_plant { width:60%; margin:10px auto; padding:15px; background:#f0f0f0; border: 1px solid #3c8dbc;}
+.select_plant button[type="submit"], .select_plant .btn-flat { margin-top:25px;}
+.select_plant .btn-flat { margin-left:8px;}
+
+.newplant .right { text-align:right;}
+.newplant h3 { color:#3c8dbc; padding:0 10px;}
+.newplant th { background:#3c8dbc; color:#fff;}
+.newplant table tr:nth-child(odd) { background:#ddd;}
+.newplant table tr:nth-child(even) { background:#f0f0f0;}
+.newplant table, .newplant table tr th, .newplant table tr td, .newplant .table-responsive > .table-bordered
+ { border: 1px solid #666;}
+
+.amount {font-weight: bold;}
+
+
+.btn-settled {
+	border-radius: 1; 
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
+	border-width: 1px;
+	background-color: #0753ea;
+    color: #fff;
+    border-color: #ddd;
+    font-size: 10px;
+    padding: 5px 7px;
+}
+
+
+.btn-unsettled {
+	border-radius: 1; 
+	-webkit-box-shadow: none; 
+	-moz-box-shadow: none; 
+	box-shadow: none; 
+	border-width: 1px;
+	background-color: #045a33;
+    color: #fff;
+    border-color: #ddd;
+    font-size: 10px;
+    padding: 5px 7px;
+}
+
+.btn-consolidated-trip-save {
+	font-size: 10px;
+	padding: 5px 7px;
+}
+
+.dashboardPageHeading{margin-left: 16px;margin-bottom: 20px; margin-top: 17px;}
+
+.consolidatedTripTable a {color : #fff;}
+
+select[multiple] option:checked {
+  background: #8FB5F8 linear-gradient(0deg, #8FB5F8 0%, #8FB5F8 100%);
+}
+
+
+.multiselect-parent {width: 100%;}
+.multiselect-parent .dropdown-toggle {width: 100%;}
+.multiselect-parent .dropdown-menu {width: 100%;}
+
+
+
+.list_view { border: 1px solid #ccc; padding:0 15px;}
+.list_view .form-group {margin:0; padding:5px 0;}
+.list_view .row:nth-child(odd) { background:#ddd;}
+.list_view .row:nth-child(even) { background:#f0f0f0;}
+
+
+.truck_view { border: 1px solid #ccc; padding:0 15px; margin-bottom:30px;}
+.truck_view .row .col-md-6 label{ width:100%; padding:0 0 5px 0; margin:0px; }
+.truck_view .section-heading { background:#d2ebf9;}
+.truck_view .section-heading h4 { font-weight: 600; color:#000;}
+.truck_view .form-group {margin:0; padding:5px 0;}
+.truck_view .row:nth-child(odd) { background:#ddd;}
+.truck_view .row:nth-child(even) { background:#f0f0f0;}
+
+
+.trip_form { border: 1px solid #ccc; padding:0 15px; margin-bottom:30px;}
+.trip_form .row .col-md-6 label{ width:100%; padding:0 0 5px 0; margin:0px; }
+.trip_form .section-heading { background:#d2ebf9;}
+.trip_form .section-heading h4 { font-weight: 600; color:#000;}
+.trip_form .form-group {margin:0; padding:5px 0 15px;}
+.trip_form .row { background:#f0f0f0;}
+
+.trip_view { border: 1px solid #ccc; padding:0 15px; margin-bottom:30px;}
+.trip_view .row .col-md-6 label{ width:100%; padding:0 0 5px 0; margin:0px; }
+.trip_view .section-heading { background:#d2ebf9;}
+.trip_view .section-heading h4 { font-weight: 600; color:#000;}
+.trip_view .form-group {margin:0; padding:5px 0;}
+.trip_view .row:nth-child(odd) { background:#ddd;}
+.trip_view .row:nth-child(even) { background:#f0f0f0;}
+
+.upperCaseTransform{text-transform:uppercase;} /*transform text to uppercase whatever is typed in textbox*/
+
+.consolidatedTripForm .date .input-group-addon {position: absolute; right:5px; top:34px; background: none; border:0px; padding:0px; width:20px;}
+
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width:500px;
+  height:350px;
+}
+
+.consolidatedContainer .datepicker {top:218px !important;}
+
+
+
+/*for google auto suggested location in modal*/
+.pac-container {
+        z-index: 10000 !important;
+    }
+
+
+ .invalidInputErrorClass {
+ 	color: red;
+ }   
+ .redAsterisk {
+ 	color: red;
+ 	font-size: 20px;
+ }
+
+/* 09-04-2019 new css start */
+ .labelHeight{ height:19px; }
+ .labelHeight-sm{ height:19px; }
+
+ .navbar-nav>.user-menu>.dropdown-menu>li.user-header{ height: 108px; }
+
+ .daterangepicker .drp-calendar {	max-width: 200px !important; }
+
+ .daterangepicker .table-condensed>tbody>tr>td,  .daterangepicker .table-condensed>tbody>tr>th,  .daterangepicker .table-condensed>tfoot>tr>td,  .daterangepicker .table-condensed>tfoot>tr>th,  .daterangepicker .table-condensed>thead>tr>td,  .daterangepicker .table-condensed>thead>tr>th {	padding: 2px !important; }
+
+.daterangepicker .calendar-table th, .daterangepicker .calendar-table td{ min-width: 25px !important;	width: 25px !important;	height: 24px; }
+
+@supports (-moz-appearance:none) {
+  input[type="file"].form-control{ padding:0px !important; }
+}
+
+th.parties_address_col, td.parties_address_col{ width:130px; }
+th.trip_status_col, td.trip_status_col{ width:100px; }
+th.trip_prtyname_col, td.trip_prtyname_col{ width:130px; }
+th.trip_dislamount_col, td.trip_dislamount_col{ width:90px; }
+th.trip_advncamount_col, td.trip_advncamount_col{ width:90px; }
+.daterangepicker.opensright{ width:389px !important; }
+.daterangepicker.opensright:after, .daterangepicker.opensright:before{ left:auto !important; right:50px !important; }
+
+.labelwithcheck{ padding-top:7px; }
+.labelwithcheck label{ float: left; margin-right:20px; }
+.labelwithcheck input[type=checkbox]{ float: left; }
+ /*09-04-2019 new css ended */
+
+
+ .pdftrip .date .input-group-addon {
+
+    position: absolute;
+    right: 5px;
+    top: 35px;
+    background: none;
+    border: 0px;
+    padding: 0px;
+    width: 20px;
+}
+
+
+.smallerInput{font-size: 11px;}
+
+.datepicker {z-index : 1999 !important;}
+
+/************************************** CHECKBOX **********************************/
+input[type=checkbox].tripCheckbox + label{
+	margin: 0.2em !important;
+  	cursor: pointer !important;
+}
+input[type=checkbox].tripCheckbox {
+  display: none;
+}
+input[type=checkbox].tripCheckbox + label:before {
+  content: "\2714" !important;
+  border: 0.1em solid #000 !important;
+  border-radius: 0.2em !important;
+  width: 1em !important;
+  height: 1em !important;
+  padding-left: 0.2em !important;
+  margin-right: 0.2em !important;
+  vertical-align: bottom !important;
+  color: transparent !important;
+  transition: .2s !important;
+}
+
+input[type=checkbox].tripCheckbox + label:active:before {
+  transform: scale(0) !important;
+}
+
+input[type=checkbox].tripCheckbox:checked + label:before {
+  background-color: #3c8dbc !important;
+  border-color: #3c8dbc !important;
+  color: #fff !important;
+}
+
+
+/************************************ CHECKBOX *********************************/
+
+
+/*========= responsive =========*/
+
+@media (max-width:1199px) {
+
+	
+	
+	}
+
+
+
+@media (max-width:991px) {
+
+.select_plant {width:85%;}
+.list_view .row .col-md-6:nth-child(1) {background:#ddd;}
+.list_view .row .col-md-6:nth-child(2) { background:#f0f0f0;}
+
+.truck_view .row .col-md-6:nth-child(1) {background:#ddd;}
+.truck_view .row .col-md-6:nth-child(2) { background:#f0f0f0;}	
+	
+	}
+	
+@media (max-width:767px) {
+
+	
+	
+	}
+	
+	
+@media (max-width:639px) {
+
+.select_plant {width:95%;}	
+	
+	}
+	
+	
+@media (max-width:479px) {
+.select_plant .col-xs-9, .select_plant .col-xs-3, .select_plant .col-xs-7, .select_plant .col-xs-5
+{ float: none; width:100%;}
+.select_plant button[type="submit"], .select_plant .btn-flat{ margin-top:0px;}
+.select_plant .col-xs-3 .form-group, .select_plant .col-xs-5 .form-group { margin-bottom:0px;}
+	
+	
+	}
+	
+	
+		

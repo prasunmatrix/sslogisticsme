@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> SSL - Map </TITLE>
+  <META NAME="Generator" CONTENT="EditPlus">
+  <META NAME="Author" CONTENT="">
+  <META NAME="Keywords" CONTENT="">
+  <META NAME="Description" CONTENT="">    
+  <link rel="stylesheet" href="/css/bootstrap/dist/css/bootstrap.min.css">
+  <!------ Include the above in your HEAD tag ---------->
+  <script src = "/socket.io/socket.io.js"></script> 
+  <!-- <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script> -->	
+  <script   
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrU0RpAT5Y2hYKkf6TJUmmknh1YoV0bg&sensor=false">
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style>
+    #loading {	        
+      width: 100%;
+      text-align: center;
+      margin-top: 100px;
+    }	
+    #map{
+      height: 500px;
+      max-height: 500px;
+      width:100%;
+      max-width:100%;
+      position: relative;
+      display: none;
+      border : 2px #242124 solid;
+    }
+   
+</style>	
+ </HEAD>
+<body>
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12">
+      <form method="post" action="<%= postUrl%>" name="frs" class="form-inline"  style="margin-top:15px;">
+        <div class="form-group">
+          <label class="control-label col-md-4 text-left">Select Truck</label>
+          <select class="form-control col-md-8" name="filename">
+            <option value="">Select Date</option>
+            <% truckArray.forEach(function(element) { %>
+              <option value="<%= element%>"><%= element%></option>
+            <% });%>
+          </select>
+        </div>
+        <button style="margin-left:15px;" type="submit" class="btn btn-primary" name="submit">Submit</button>
+      </form>   
+    </div>
+  </div> 
+  <div class="row">
+    <div class="col-md-12" style="overflow: auto;">
+      <div id="map"></div>
+      <div id="loading">
+        <img src="/image/loading.gif">
+      </div>      
+    </div>    
+  </div>
+</div>
+<script>
+//==================================================================
+//$( document ).ready(function() {
+  document.addEventListener("DOMContentLoaded", function() {
+    if(google)
+    {
+      //==================================================================
+      //var ioconn = new io();
+      //var socket = ioconn.connect('http://192.168.1.30:5033', {'force new connection': true}); 
+      var socket = io.connect('http://demoyourprojects.com:5033'); 
+      var directionsDisplay = new google.maps.DirectionsRenderer;
+      var directionsService = new google.maps.DirectionsService;
+      var infowindow = new google.maps.InfoWindow();
+      var map;
+      var allMapData = [];
+      var directionData = {};
+      //==================================================================
+      socket.on('gpsTracker', function(mapDatas){    
+        console.log('All Data');
+        if(mapDatas.length > 0)
+        {
+          allMapData = mapDatas;
+          let countD = (mapDatas.length - 1);
+          let indexCount = 0;
+          if(mapDatas.length > 10)
+          {
+            let indexCount = (mapDatas.length) - 10; 
+          }      
+          //=========================================================
+          var latlng = {
+            lat : mapDatas[indexCount].lat ? parseFloat(mapDatas[indexCount].lat) : parseFloat('22.528850'),
+            lng : mapDatas[indexCount].lng ? parseFloat(mapDatas[indexCount].lng) : parseFloat('87.314490')
+          };
+          checkIfMapExists(latlng); 
+          //=========================================================
+          directionData = {
+            mapStartlat : mapDatas[0].lat ? parseFloat(mapDatas[0].lat) : parseFloat('22.528850'),
+            mapStartlng : mapDatas[0].lng ? parseFloat(mapDatas[0].lng) : parseFloat('87.314490'),        
+            mapEndlat : mapDatas[countD].lat ? parseFloat(mapDatas[countD].lat) : parseFloat('22.395870'),
+            mapEndlng : mapDatas[countD].lng ? parseFloat(mapDatas[countD].lng) : parseFloat('87.473863')
+          };
+          calculateAndDisplayRoute(directionsService, directionsDisplay, directionData);  
+          directionsDisplay.setMap(map);
+        }
+      });
+      //==================================================================
+      socket.on('latLng', function(mapCurrentdata){
+        console.log('current position');
+        let countD = (allMapData.length - 1);
+        if(mapCurrentdata.lat && mapCurrentdata.lng)
+        {
+          directionData = {
+              mapStartlat : allMapData[0].lat ? parseFloat(allMapData[0].lat) : parseFloat('22.528850'),
+              mapStartlng : allMapData[0].lng ? parseFloat(allMapData[0].lng) : parseFloat('87.314490'),        
+              mapEndlat : mapCurrentdata.lat ? parseFloat(mapCurrentdata.lat) : parseFloat('22.395870'),
+              mapEndlng : mapCurrentdata.lng ? parseFloat(mapCurrentdata.lng) : parseFloat('87.473863')
+            };
+          calculateAndDisplayRoute(directionsService, directionsDisplay, directionData);  
+          directionsDisplay.setMap(map);
+        }
+      });
+      //==================================================================  
+      function initializeMap(latlng){
+        let lat = latlng.lat ? parseFloat(latlng.lat) : parseFloat('22.395870');
+        let lng = latlng.lng ? parseFloat(latlng.lng) : parseFloat('87.473863');
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 18,
+          center: {lat: lat, lng: lng},          
+        });
+      }
+      //==================================================================
+      function checkIfMapExists(latlng){
+        if(!map) {
+          $("#loading").hide(1000);
+          $("#map").show(1000);
+          initializeMap(latlng);
+        }
+      }
+      //==================================================================
+      function calculateAndDisplayRoute(directionsService, directionsDisplay, directionData){    
+        if(directionData.mapStartlat && directionData.mapEndlng)
+        {
+          
+          directionsService.route({
+            origin: {lat: directionData.mapStartlat, lng: directionData.mapStartlng},  
+            destination: {lat: directionData.mapEndlat, lng: directionData.mapEndlng},          
+            travelMode: google.maps.TravelMode['DRIVING'],        
+          }, function(response, status) {
+            if (status == 'OK') {                 
+              directionsDisplay.setDirections(response);
+              var route = response.routes[0];       
+            } else {
+              console.log('Directions request failed due to ' + status);        
+            }
+          });
+        }
+      }
+      //==================================================================
+      function indexcalculate(countD){
+    let indexCount = 0;
+
+    if(countD > 10 && countD < 20)
+      {
+        indexCount = 15;
+      }else if(countD > 20 && countD < 50)
+      {
+        indexCount = 30;
+      }else if(countD > 50 && countD < 100)
+      {
+        indexCount = 75;
+      }else if(countD > 100 && countD < 500)
+      {
+        indexCount = 250;
+      }else if(countD > 500 && countD < 1000)
+      {
+        indexCount = 750;
+      }else if(countD > 2000 && countD < 5000)
+      {
+        indexCount = 3500;
+      }else if(countD > 5000 && countD < 10000)
+      {
+        indexCount = 7500;
+      }else if(countD > 10000 && countD < 30000)
+      {
+        indexCount = 15000;
+      }else if(countD > 30000 && countD < 50000)
+      {
+        indexCount = 45000;
+      }else if(countD > 50000 && countD < 100000)
+      {
+        indexCount = 60000;
+      }
+      return indexCount;
+  }
+    }
+});
+//==================================================================
+</script>
+</BODY>
+</HTML>
+
+    <!-- <script>
+      function initMap() {
+        var directionsDisplay = new google.maps.DirectionsRenderer;
+        var directionsService = new google.maps.DirectionsService;
+        var infowindow = new google.maps.InfoWindow();
+        //=========================================================
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat: 22.525715, lng: 87.318822},          
+        });
+        //=========================================================        
+        calculateAndDisplayRoute(directionsService, directionsDisplay);
+        //=========================================================
+        var currentLatLng_rem = new google.maps.LatLng(22.525715, 87.318822);
+				var marker_rem = new google.maps.Marker({
+						position: currentLatLng_rem,
+            map:map  				
+					});
+
+          google.maps.event.addListener(marker_rem, 'click', function(){
+            infowindow.setContent('Hello Dilip Kumar Shaw');
+              infowindow.open(map, this);
+          });				
+        //=========================================================
+        directionsDisplay.setMap(map);
+        //polyline.setMap(map);
+        
+        //=========================================================
+      }
+
+      function calculateAndDisplayRoute(directionsService, directionsDisplay) {  
+
+          var waypts = [
+            {
+              location: 'Station Road, Godapiasal, West Bengal 721129',
+              stopover: false
+            },
+            {
+              location: 'National Highway 60, Durbbagere, West Bengal 721129',
+              stopover: false
+            }
+            ];
+
+
+          directionsService.route({
+            origin: {lat: 22.528850, lng: 87.314490},  // Haight.
+            destination: {lat: 22.395870, lng: 87.473863},  // Ocean Beach.         
+            travelMode: google.maps.TravelMode['DRIVING'], 
+            waypoints: waypts,
+            optimizeWaypoints: true,
+          }, function(response, status) {
+            if (status == 'OK') {                 
+              directionsDisplay.setDirections(response);
+              var route = response.routes[0];
+              //console.log(route);
+            } else {
+              console.log('Directions request failed due to ' + status);
+              //window.alert('Directions request failed due to ' + status);
+            }
+          });
+      }
+
+    </script> -->

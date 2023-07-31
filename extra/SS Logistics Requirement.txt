@@ -1,0 +1,100 @@
+Super Admin
+    User Comman Functionality 
+        Login
+        Logout
+        Edit Profile
+        Dashbord
+        Change Password        
+    App Module Management
+        App Module List
+        Add App Module
+        App Module Functionality List
+        Add App Module Functionality
+    User Management 
+        User Role
+        User Role Permission
+        User
+        Add User
+    Country
+        Country List
+    State
+        State List
+        Add State
+    City
+        City List
+        Add City
+    Category 
+        Category List
+        Add Category
+    Sub-Category (Item) 
+        Sub-Category List
+        Add Sub-Category
+        CSV Import (Formate will be provide from our end)
+    Plant Management 
+        Plant List
+        Add Plant
+        CSV Import (Formate will be provide from our end)
+    Warehouse Management 
+        Warehouse List
+        Add Warehouse
+        CSV Import (Formate will be provide from our end)
+    Party Management (Destination) 
+        Party List
+        Add Party          
+        Party Destination List
+        Add Party Destination
+        CSV Import (Formate will be provide from our end)
+    Petrol Pump Management 
+        Petrol Pump List
+        Add Petrol Pump
+    Truck Management         
+        Truck List
+        Add Truck
+        Google Map (Tracking Truck with GPS)    
+    Trip Management 
+        Trip List
+        Upload POD (For Close The Trip)
+        Add Trip
+        Google Map (Tracking Truck with GPS as per Trip ID)
+        PDF (LR, ADV and DSL in 1 A4 size paper)
+    Notification (only for 'SS Logistics' Truck) 
+        Insurance
+        Permit
+        Tax
+        Pollution
+    Reports
+
+    Approvle Management 
+        ADV List
+        DSL List
+    Payment Module
+    Project Design and Setup 
+        Database Design 
+        Laravel and Angular Setup for Development Start With Basic Design
+        Node Setup
+        Layout Setup
+        Menu Setup as per user type
+        Create a Lisner For Received the data from GPS Devise
+        Testing and Fixing the error
+        Others
+
+
+Cron Needs
+    1) For Create Notification
+    2) For Delete the Complite Trip GPS Tracking Data
+
+
+
+Queries List
+
+    1) When we are creating the Plant/Warehouse there is one field "Balance Given" please describe it.
+            a) What is purpose this BG ("Balance Given") in software?
+            b) If BG value is "0" then after how we are re-reinitialize his value.
+
+    2) If supervisor belongs with the Plant/Warehouse then we think Supervisor Management authority only for admin or accounts department.
+
+    3) After the Trip is complete GPS Tracking is required or not.
+
+    4) You can provide the some image of invoices of (AMBUJA, JSW, OCL, SSL and Ultratech) what is purpose of these invoices.
+
+    5) 

@@ -1,0 +1,51 @@
+<?php
+return array(
+	//'api_key' 					=> 'AIzaSyC6tTqMUrHNx7-qDaC_KZ-mub9sjvFzjNA', /*local*/
+	'api_key' 					=> 'AIzaSyBdrU0RpAT5Y2hYKkf6TJUmmknh1YoV0bg', /*live (used for calculating latitude longitude while adding/editing a form )*/ 
+    'api_key2'                  => 'AIzaSyCKAShWa-RS38KNVGp-PMLgB7flTZ61hac', /*live (used for calculating latitude longitude while importing csv)*/ 
+    'fromName'                  => 'SSLogistics',
+    'fromEmail'                 => 'no-reply@sslogistics.com',
+    'siteName' 					=> 'sslogistics',
+    'passwordTokenExpiryTime'   => 30,
+    'dateFormat' 				=> 'd-m-Y',
+    'adminPerPageRecord'        => 2,
+    'editIcon'                  => 'fa fa-pencil-square-o',
+    'deleteIcon'                => 'fa fa-trash',
+    'viewIcon'                  => 'fa fa-eye',
+    'truckRegistrationPath' 	=> 'uploads/truck_registration_certificate/',
+    'truckInsurancePath' 		=> 'uploads/truck_insurance/',
+    'truckPermitPath' 			=> 'uploads/truck_permit/',
+    'trucktaxPath' 				=> 'uploads/truck_tax/',
+    'truckPollutionPath' 		=> 'uploads/truck_pollution/',
+    'DBdateFormat' 				=> 'Y-m-d H:i:s',
+    'onlyDateFormat'            => 'Y-m-d',
+    'supervisorRoleId'          => 3,
+    'randomUserPassword'        => 12345678,
+    'adminRoleId' 		        => 1,
+    'tripPODPath' 				=> 'uploads/trip_POD/',
+    'uploadIcon' 				=> 'fa fa-upload',
+    'editRequestIcon' 			=> 'fa fa-pencil',
+    'rightIcon'  				=> 'fa fa-check-circle',
+    'crossIcon' 				=> 'fa fa-close',
+    'userIcon' 					=> 'fa fa-user',
+    'inactiveIcon'              => 'fa fa-times-circle',
+	'completeIcon' 				=> 'fa fa-check',
+	'phoneNumberPattern'   		=> '/^\+?[\d]+$/', /*defining pattern of phone number*/
+	'numberPattern' 			=> '/^[\d]+$/',
+	'emailPattern' 				=> '/^[a-zA-Z0-9-._+]+(@[a-zA-Z0-9-.]{1,}[a-zA-Z0-9_.-]+\.)+[a-zA-Z]{2,4}$/',
+	'truckNumberPattern'		=> '/^[A-Z]{2}[-][0-9]{1,2}[A-Z]{1}[-][0-9]{4}$/',
+    'profileImagePath'          => 'uploads/user_profile_picture/',
+    'perPageRecord'             => 10,
+    'addIcon'                   => 'fa fa-plus-circle',
+    'bellIcon'                  => 'fa fa-bell',
+    'gearIcon'                  => 'fa fa-gear',
+    'checkIcon'                 => 'fa fa-check',
+    'closeIcon'                 => 'fa fa-times',
+    'challan_Exps'              => 10,
+    'tds'                       => 18,
+    'accountantRoleId'          => 2,
+    'folderIcon'                => 'fa fa-folder-open',
+    'paperPlaneIcon'            => 'fa fa-paper-plane',
+
+);
+?>

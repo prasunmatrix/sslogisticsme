@@ -1,0 +1,86 @@
+Id,Reproducibility,Category,Root Cause,Solving Procedure
+189,always,User Interface,Placed Wrong Text,Replace Correct Text
+190,always,Functional,“Consolidated View Trip” is not added in Permission List.,Added  “Consolidated View Trip”  in Permission List.
+119,always,User Interface,,
+191,always,Functional,Have not put any checking whether a supervisor has already assigned to any plant or not while uploading CSV.,Added checking whether a a supervisor is already assigned to any plant or not while importing CSV.
+192,always,Functional,"Have not put the ""Balance Initiation"" coding while importing Plant CSV.","Implemented the ""Balance Initiation"" code while importing Plant CSV."
+51,always,Functional,Text error in “Edit User” page. Validation error.,Added proper validation in “Edit User” page. Changed text as per requirement.
+68,always,Functional,Missing proper validation while checking for duplicate Email Address while Editing User,Changed the validation code of duplicate Email Address while editing User.
+32,always,Functional,No validation is added for creating duplicate State Name and State Code. Searching with respect to State Code is not added.,Added validation for checking duplicate State Name and State Code while creating State. Searching with respect to State Code  added.
+33,always,Functional,No validation is added for creating duplicate City Name and City Code. All the states (with respect to active/inactive) are shown in State  drop down while adding City . No alphabatical order is added for State.,Added validation for checking duplicate City Name and City Code while creating City. Showing only ‘Active’ State in alphabatical order in dropdown while adding City. 
+34,always,Functional,No validation is added for creating duplicate Category Name,Added validation for checking duplicate Category Name while creating Category
+35,always,Functional,No validation is added for creating duplicate Subcategory Name.  All the categories (with respect to active/inactive) are shown in Category  drop down while adding Subcategory. Import functionality is not working due uploading wrong formatted CSV.,Added validation for checking duplicate Subcategory Name while creating Subcategory. Showing only ‘Active’ Category in alphabatical order in dropdown while adding Subcategory. A proper formatted CSV  is solving the import issue.
+36,always,Functional,Import functionality is not working due uploading wrong formatted CSV., A proper formatted CSV  is solving the import issue.
+37,always,Functional,No validation is added for creating duplicate Plant  Name. Missing proper validation through out the module under the mentioned condition.,Added validation for checking duplicate Plant Name while creating Plant. Adding proper validation as per mentioned in the bug.
+84,always,Functional,No message is given while ‘Inactive’ user tried to login and failed.,Added proper failure message while ‘Inactive’ user tried to login and failed.
+101,always,Functional,CSV import issue occurs due to putting wrong table field name in code,Added the proper table field name in code.
+31,always,Functional,Link is not working because local server link is given.,Added Client’s server link to resolve the issue
+41,always,Functional,Validation error for duplicate State add,Solving Validation error with proper condition
+44,always,Functional,Validation error and Javascript throught out the module.,Added proper Validation and Javascript Validation in the module
+55,always,Functional,User role was not mandatory while adding User,Changed ‘User Role’ as mandatory while adding User.
+63,always,Functional,"Before implementing the total functionality of this page many testing data were added manually in database for viewing this page, all of them were correct then, that’s why the error was coming",Cleared the databse totally and inserted new correct data.
+64,always,Functional,"As all the modules are implemented in AngularJS and only ‘User’ module is implemented in PHP , thats why AngularJS’s ‘Logout’ function is not working in ‘User’ section.",Implented Laravel’s Logout functionality.
+66,always,Functional,Missing proper validation sequence.,Added properly sequenced validation message.
+69,always,Functional,"Before implementing the total functionality of this page many testing data were added manually in database for viewing this page, all of them were correct then, that’s why the error was coming",Cleared the databse totally and inserted new correct data.
+75,always,Functional,Missing proper validation for Contact Number and Email,Added proper validation for Contact Number and Email
+76,always,Functional,Permission and Authentication related issue.,Solving the Permission and Authentication related issue.
+77,always,Functional,Browser Cache problem,Cleared the Browser Cache
+81,always,Functional,Wrong data coming for User role while editing User.,Getting proper data of User Role while editing User.
+92,always,Functional,Proper Validation missing.,Added Proper validation.
+97,always,Functional,Proper sorting functionality were missing.,Proper sorting functionality with pagination are added.
+99,always,Functional,Proper searching functionality were missing.,Proper searching functionality with pagination are added.
+100,always,Functional,Unable to replicate issue,Unable to replicate issue
+105,always,User Interface,Same session name is used for logged in user’s phone number and edited user’s phone number.,Changed the Edited User’s session name for phone number
+106,always,Functional,CHANGE REQUEST,"Removed ‘Active’ checkbox and added ‘Next’,’Previous’ button for navigating to different tab"
+108,always,User Interface,No label were added where there is need to upload file in add/edit form.,Added proper label where it is needed to upload file.
+109,always,Functional,Advance amount is shown instead of DSL amount,Showing proper DSL amount.
+120,have not tried,Functional,CHANGE REQUEST      and Date field validation were missing,"User will be able to click on Next button if he filled out all the fields in current page, Change button color as per requirement. Validating date field as per requirement."
+125,always,Functional,CHANGE REQUEST,we are taking the 'MINIMUM' year from the database and showing from that minimum year to current year in drop down.
+128,always,Functional,CHANGE REQUEST,Removing ‘Active’ checkbox
+147,always,Functional,Validation missing for ‘Years’ field if no single data found for the laser.,Proper validation added.
+150,always,User Interface,Wrong text placed in the modules.,Proper text placed .
+151,always,Functional,CHANGE REQUEST,"Removing ‘Active’ checkbox while adding data, Showing ‘Active’ checkbox as it was there while editing data"
+152,always,Functional,Wrong sample file path given.,Added correct sample file path in different module.
+156,always,User Interface,CHANGE REQUEST,Showing ‘Dates’ in Notification modules as per mentioned.
+157,always,Functional,'Status’ field is present in every sample CSV file,Removed ‘Status’ field from every sample CSV file.
+159,always,Functional,Spelling mistakes. Supervisor’s permission related issue in listing page.,Added correct spelling. Solving the permission related issue for Supervisor.
+161,always,Functional, Supervisor’s permission related issue in listing page.,Solving the permission related issue for Supervisor.
+162,always,Functional,One supervisor is assigned to many plants,Assign one supervisor to one plant only.
+164,have not tried,Functional,Permission related  issue.,Solving the permission related issue throughout the site.
+167,always,Functional,Permission related  issue.,Solving the permission related issue throughout the site.
+168,always,Functional,Edit of trip could be done in case of Closed trip,Removing ‘Edit’ option for Closed Trip.
+169,always,Functional,CHANGE REQUEST,"Giving view permission to Supervisor for Plant, Party module "
+170,always,User Interface,CHANGE REQUEST,Showing Details page as per discussed. Added ‘N/A’ where there is no data.
+172,always,Functional,Spelling Mistakes. Wrong data entry in database while adding payment to Plant,Solved the Spelling error. Changed the code for proper data entry in database.
+173,always,User Interface,CHANGE REQUEST,Adding proper space as per mentioned.
+175,always,Functional,Permission related  issue.," We are giving 'view' permission of Country, State, City to the Supervisor."
+177,always,Functional,Permission related  issue.,Solving the permission related issue
+179,always,User Interface,Permission related  design issue.,Solving the permission related design issue
+180,always,User Interface,Permission related  issue.,Solving the permission related issue
+185,always,Functional,Permission related  issue.,Solving the permission related issue
+186,always,Functional,Permission related  issue.,Solving the permission related issue
+40,always,Design,Design Issue.,A loader is added
+52,N/A,Functional,Missing User Details and Status,Added User Details and Status
+53,always,User Interface,Wrong text given,Text is changed
+54,always,User Interface,Validation message missing,Added Validation Message
+56,always,Functional,Validation has not been implented in Add/Edit User page,Validation is implemented in Add/Edit User page
+59,always,User Interface,Validation message missing,Added Validation Message
+67,always,User Interface,CHANGE REQUEST,Flash message implemented.
+74,always,Functional,Validation message missing,Added Validation Message
+98,always,User Interface,Design Issue.,Solved Design issue.
+123,always,Design,Design Issue.,Solved Design issue.
+124,always,User Interface,"Title missing in different icon (Edit, Delete, View etc) in listing page",Added title in different icon in listing page
+126,always,Design,'Action’ and ‘View’ icon were different in User Module from rest of the module.,Changing the ‘Action’ and ‘View’ icon in User Module as per other module.
+158,always,User Interface,CHANGE REQUEST, added row to show total credit and debit amount
+163,always,User Interface,input type ‘number’ is added for ‘Balance Amount’ field,Changed the ‘number’ type field to ‘text’ type field.
+171,always,Functional,CHANGE REQUEST,Download link is added for every file mentioned.
+48,always,Functional,Validation is missing,Added Validation
+91,always,User Interface,Validation missing for ‘Import’ button,Validation added for ‘Import’ button.
+107,always,User Interface,CHANGE REQUEST,Making present date selected for calendars.
+110,always,User Interface,GPS trip status is present while adding/editing trip,Removing GPS trip status while adding/editing trip.
+121,always,Design,Design Issue.,Solved Design issue.
+122,always,Design,Design Issue.,Solved Design issue.
+129,always,User Interface,CHANGE REQUEST,Changing date format as per requirement.
+145,always,User Interface,Design Issue.,Solved Design issue.
+148,always,User Interface,CHANGE REQUEST,Changing date format as per requirement.
+154,always,User Interface,input type ‘number’ is added for ‘Amount’ field,Changed the ‘number’ type field to ‘text’ type field.

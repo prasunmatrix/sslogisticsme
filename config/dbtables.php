@@ -1,0 +1,36 @@
+<?php
+
+return [
+    /*Table names are declared for joining purpose*/
+   'states'                                     => 'states',
+   'countries'                                  => 'countries',
+   'cities'                                     => 'cities',
+   'categories'                                 => 'categories',
+   'subcategories'                              => 'items',
+   'plants'                                     => 'plants',
+   'plant_addresses'                            => 'plant_addresses',
+   'plant_journal_lasers'                       => 'plant_journal_lasers',
+   'petrol_pumps'                               => 'petrol_pumps',
+   'trucks'                                     => 'trucks',
+   'parties'                                    => 'parties',
+   'party_destinations'                         => 'party_destinations',
+   'truck_insurances'                           => 'truck_insurances',
+   'truck_registrations'                        => 'truck_registrations',
+   'truck_permits'                              => 'truck_permits',
+   'truck_taxes'                                => 'truck_taxes',
+   'truck_pollutions'                           => 'truck_pollutions',
+   'users'                                      => 'users',
+   'trips'                                      => 'trips',
+   'plant_journal_lasers_edit_requests'         => 'plant_journal_lasers_edit_requests',
+   'petrol_pump_journal_lasers_edit_requests'   => 'petrol_pump_journal_lasers_edit_requests',
+   'trip_payment_managements'                   => 'trip_payment_managements',
+   'address_zones'                              => 'address_zones',
+   'vendors'                                    => 'vendors',
+   'plant_user_relations'                       => 'plant_user_relations',
+   'trip_POD'                                   => 'trip_POD',
+   'petrol_pump_journal_lasers'                 => 'petrol_pump_journal_lasers',
+   'banks'                                      => 'banks',
+   'bank_branches'                              => 'bank_branches',
+   'trip_bills'                                 => 'trip_bills',
+];
+?>

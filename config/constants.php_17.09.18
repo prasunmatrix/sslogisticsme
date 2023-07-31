@@ -1,0 +1,29 @@
+<?php
+return array(
+	'api_key' 					=> 'AIzaSyC6tTqMUrHNx7-qDaC_KZ-mub9sjvFzjNA', /*local*/
+	//'api_key' 					=> 'AIzaSyDYhQFAkoA_tiiiZHmwSfpRlh7e5-5QoFQ', /*live*/
+    'fromName'                  => 'SSLogistics',
+    'fromEmail'                 => 'no-reply@sslogistics.com',
+    'siteName' 					=> 'sslogistics',
+    'passwordTokenExpiryTime'   => 30,
+    'dateFormat' 				=> 'd-m-Y',
+    'adminPerPageRecord'        => 2,
+    'editIcon'                  => 'fa fa-pencil-square-o',
+    'deleteIcon'                => 'fa fa-trash',
+    'viewIcon'                  => 'fa fa-eye',
+    'truckRegistrationPath' 	=> 'uploads/truck_registration_certificate/',
+    'truckInsurancePath' 		=> 'uploads/truck_insurance/',
+    'truckPermitPath' 			=> 'uploads/truck_permit/',
+    'trucktaxPath' 				=> 'uploads/truck_tax/',
+    'truckPollutionPath' 		=> 'uploads/truck_pollution/',
+    'DBdateFormat' 				=> 'Y-m-d H:i:s',
+    'supervisorRoleId'          => 3,
+    'randomUserPassword'        => 12345678,
+    'adminRoleId' 		        => 1,
+    'tripPODPath' 				=> 'uploads/trip_POD/',
+    'uploadIcon' 				=> 'fa fa-upload',
+    'editRequestIcon' 			=> 'fa fa-pencil',
+    'rightIcon'  				=> 'fa fa-check-circle',
+    'crossIcon' 				=> 'fa fa-close',
+);
+?>

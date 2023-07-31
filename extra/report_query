@@ -1,0 +1,46 @@
+Customer Pending
+------------------
+1) What is the relationship of challan status with trip status. Currently Trip has 	6 status :- 'Awaiting', 'Running','Cancelled','Settled','Unsettled','Closed'.
+2) What is 'MAT' field denoting in the table?
+3) We will calculate the pending amount in following way:- 
+	amount = Trip_Advance_Amount - (freight_charge + toll + unloading + tare_charge)
+
+	If the amount is negative and also if any bag is pending then we will consider the customer as Pending.
+
+4) We are considering the "Transporter"	 as Vendor Name.
+5) Considering 'Remarks' as a text field.
+
+
+
+Diesel Report
+----------------
+1) What is 'Diesel Slip'?
+2) 'Payment', 'Purchase', 'Balance' will be calculated in the same way it is calulated in 'Paterol Pump Laser' page in Admin Panel? (http://sslogistics.demoyourprojects.com/view-selected-petrolpump-laser/1/2019)
+3) Considering 'Today Purchase' as 'Debit' amount.
+4) Considering 'Today Payment' as 'Credit' amount.
+
+
+
+Cash Report
+------------
+Need discussion
+
+
+Payment
+--------
+1) What is 'Vandor Bill'?
+2) Considering the view as similar as 'Consolidated Trip Details' in Admin Panel.  
+3) In 'Consolidated view of Trips' in Admin Panel we are giving numeric value of frieght charge in a text box of our own, but here it is calculated on the basis of Qty, Rate, U/L , Toll. Please explain.
+4) What is 'Rate','Short Bags'?
+
+
+
+Trip Report
+------------
+1) What is 'Wheeler','Loading'?
+2) Considering 'Time Elapsed' the total duration of trip.
+
+
+GPS Trucks
+-----------
+It will be showing the current stastus of trucks when the page is loaded?

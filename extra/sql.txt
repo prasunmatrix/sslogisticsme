@@ -1,0 +1,140 @@
+ALTER TABLE `ss_truck_registrations` CHANGE `registration_file` `registration_file` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_truck_permits` CHANGE `permit_file` `permit_file` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_truck_insurances` CHANGE `policy_file` `policy_file` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_truck_taxes` CHANGE `tax_file` `tax_file` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+ALTER TABLE `ss_plants` ADD `supervisor_id` BIGINT(20) NOT NULL COMMENT 'id of the users having the role \'Supervisor\'' AFTER `type`;
+
+
+ALTER TABLE `ss_party_destinations` CHANGE `lat` `lat` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_plant_addresses` CHANGE `lng` `lng` VARCHAR(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+===========================================================================================================
+
+INSERT INTO `ss_permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`, `created_by`, `updated_by`, `deleted_at`, `deleted_by`) VALUES (NULL, 'country_view', 'web', '2018-08-24 00:00:00', '2018-08-24 00:00:00', '1', '1', NULL, NULL);
+
+
+INSERT INTO `ss_model_has_permissions` (`permission_id`, `model_type`, `model_id`) VALUES ('69', 'App\\User', '1');
+
+
+INSERT INTO `ss_role_has_permissions` (`permission_id`, `role_id`) VALUES ('69', '1');
+
+
+
+
+
+
+
+
+INSERT INTO `ss_permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`, `created_by`, `updated_by`, `deleted_at`, `deleted_by`) VALUES (NULL, 'plant_manage_address_add', 'web', '2018-08-24 00:00:00', '2018-08-24 00:00:00', '1', '1', NULL, NULL);
+
+
+INSERT INTO `ss_permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`, `created_by`, `updated_by`, `deleted_at`, `deleted_by`) VALUES (NULL, 'plant_manage_address_delete', 'web', '2018-08-21 00:00:00', '2018-08-21 00:00:00', '1', '1', NULL, NULL);
+
+
+INSERT INTO `ss_role_has_permissions` (`permission_id`, `role_id`) VALUES ('70', '1'), ('71', '1');
+
+
+INSERT INTO `ss_model_has_permissions` (`permission_id`, `model_type`, `model_id`) VALUES ('70', 'App\\User', '1'), ('71', 'App\\User', '1');
+
+
+
+ALTER TABLE `ss_users` CHANGE `profile_picture` `profile_picture` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_users` CHANGE `last_login_ip` `last_login_ip` VARCHAR(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+=========================================================================================================
+
+||======||
+|| TRIP ||
+||======||
+
+
+ALTER TABLE `ss_trips` CHANGE `trip_status` `trip_status` ENUM('Awaiting','Running','Cancelled','Settled','Unsettled') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Awaiting';
+
+ALTER TABLE `ss_plant_journal_edit_requests` CHANGE `approved_by` `approved_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\'';
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers_edit_requests` CHANGE `approved_by` `approved_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\'';
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers` CHANGE `approved_by` `approved_by` BIGINT(20) NULL DEFAULT NULL COMMENT 'primary key of \'users\'';
+
+
+Table ss_plant_journal_edit_requests has been renamed to ss_plant_journal_lasers_edit_requests.
+
+
+ALTER TABLE `ss_petrol_pump_journal_lasers_edit_requests` ADD `approval_status` ENUM('Pending','Approved','Disapproved') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending' AFTER `approved_on`;
+
+
+ALTER TABLE `ss_plant_journal_lasers_edit_requests` ADD `approval_status` ENUM('Pending','Approved','Disapproved') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Pending' AFTER `approved_on`;
+
+-----------------------------
+
+
+ALTER TABLE `ss_truck_pollutions` CHANGE `pollution_file` `pollution_file` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+============================================================================================================
+
+
+ALTER TABLE `ss_trips` CHANGE `trip_status` `trip_status` ENUM('Awaiting','Running','Cancelled','Settled','Unsettled','Closed') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Awaiting';
+
+
+
+
+
+
+
+
+
+
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+ALTER TABLE `ss_gps_trackings` CHANGE `gps_id` `gps_id` BIGINT(20) NOT NULL COMMENT '3rd party GPS devise id', CHANGE `unit_id` `unit_id` BIGINT(20) NOT NULL COMMENT '3rd party GPS unit id';
+
+
+ALTER TABLE `ss_role_has_permissions` CHANGE `permission_id` `permission_id` INT(10) UNSIGNED NOT NULL COMMENT 'primary key of ss_permissions', CHANGE `role_id` `role_id` INT(10) UNSIGNED NOT NULL COMMENT 'primary key of ss_roles';
+
+
+ALTER TABLE `ss_model_has_roles` CHANGE `role_id` `role_id` INT(10) UNSIGNED NOT NULL COMMENT 'primary key of ss_roles', CHANGE `model_id` `model_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'primary key of ss_users';
+
+
+
+ALTER TABLE `ss_model_has_permissions` CHANGE `permission_id` `permission_id` INT(10) UNSIGNED NOT NULL COMMENT 'primary key of ss_permissions', CHANGE `model_id` `model_id` BIGINT(20) UNSIGNED NOT NULL COMMENT 'primary key of ss_users';
+
+
+===========================================================================================================
+
+
+ALTER TABLE `ss_trips` ADD `category_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'categories\'' AFTER `lr_no`, ADD `subcategory_id` BIGINT(20) NOT NULL COMMENT 'primary key of \'subcategories\'' AFTER `category_id`;
+
+
+ALTER TABLE `ss_trips` CHANGE `subcategory_id` `subcategory_id` TEXT NOT NULL COMMENT 'primary key of \'subcategories\'';
+
+
+===========================================================================================================
+
+MOM of 09-10-2018
+------------------
+ALTER TABLE `ss_plants` CHANGE `contact_number` `contact_number` VARCHAR(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_email` `contact_email` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL, CHANGE `contact_person` `contact_person` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL;
+
+
+ALTER TABLE `ss_trips` ADD `description` TEXT NOT NULL AFTER `POD_uploaded_at`;
+
+
+
+ALTER TABLE `ss_trucks` CHANGE `bank_details` `bank_name` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL;
+
+
+ALTER TABLE `ss_trucks` ADD `account_no` BIGINT(20) NOT NULL AFTER `bank_name`, ADD `ifsc_code` VARCHAR(255) NOT NULL AFTER `account_no`, ADD `account_holder_name` VARCHAR(255) NOT NULL AFTER `ifsc_code`;
+
+
+
+

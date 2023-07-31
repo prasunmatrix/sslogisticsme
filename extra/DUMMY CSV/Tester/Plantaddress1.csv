@@ -1,0 +1,4 @@
+Plant Name,Plant Description,Plant Contact Number,Plant Contact Email,Plant Contact Person,Plant Balance Amount,Plant Supervisor Name,Plant Supervisor Mail,Plant Supervisor Phone Number,Plant Type,Country Name,Country Code,State Name,State Code,City Name,City Code,Address,Status
+Plant A,Plant 06-09 A,788,planta@test.com,A.K,5456,Supervisor 1,test190@d.com,4355454,P,India,IN,West Bengal,WB,Kolkata,KOL,Add 1,A
+Plant B,Plant 06-0 B,7776,plantb@test.com,B.K,231231,Supervisor 2,test198@d.com,231231,P,India,IN,Uttar Pradesh,UP,Lucknow,LKW,Add 2,A
+Plant 123,Plant 06-09 123,67665,plantc@test.com,C.K,231231,Supervisor 3,test198@d.com,231231,P,India,IN,Madhya Pradesh,MP,Bhopal,BH,Add 3,A

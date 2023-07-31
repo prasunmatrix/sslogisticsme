@@ -1,0 +1,7 @@
+Type,Name,Description,Contact Number,Contact Email,Contact Person,Balance Amount,Status,Supervisor Name,Supervisor Mail,Supervisor Phone Number
+P,Plant A,Testing Description A,5454,dilip@test.com,Dilip,5456,A,Suman 1,test1@mailinator.com,2222
+P,Plant B,Testing Description B,231231,sanchari@test.com,Sanchari,5888,A,Suman 2,test2@mailinator.com,231231
+P,Plant C,Testing Description C,6576576,suman@test.com,Suman,98769,A,Suman 3,test3@mailinator.com,6576576
+W,Wirehouse A,Testing Description 1,9809899,alok@test.com,Alok,8787,I,Suman 4,test4@mailinator.com,786666
+W,Wirehouse B,Testing Description 2,9876543210,ayan@test.com,Ayan,10000,I,Suman 5,test5@mailinator.com,786446
+W,Wirehouse C,Testing Description 3,6576576,debamala@test.com,Debamala,98769,I,Suman 6,test6@mailinator.com,23455
