@@ -75,7 +75,9 @@
 
 
 @section('scripts')
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrU0RpAT5Y2hYKkf6TJUmmknh1YoV0bg&libraries=places&callback=initialize" async defer></script>
+  <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdrU0RpAT5Y2hYKkf6TJUmmknh1YoV0bg&libraries=places&callback=initialize" async defer></script> -->
+
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhqY51q4Gl7RSxbwMa_6xfmSGGNdDqRSs&libraries=places&callback=initialize" async defer></script>
 
   <script>
     /*for auto suggest location*/
