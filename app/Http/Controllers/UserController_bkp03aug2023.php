@@ -113,11 +113,10 @@ class UserController extends Controller {
 
             	//$localIP = getHostByName(getHostName()); 
 
-            	//$loc = file_get_contents('https://ipapi.co/json/');
-            //$loc = file_get_contents('http://ipapi.co/json/');  
-    	    	//$obj = json_decode($loc); 
-    	    	//$localIP = isset($obj->ip) ? $obj->ip : '';
-            $localIP="45.249.80.20";    
+            	$loc = file_get_contents('https://ipapi.co/json/');
+    	    	$obj = json_decode($loc); 
+    	    	$localIP = isset($obj->ip) ? $obj->ip : '';
+
             	/*save current login ip and date time*/
             	User::where('username',$request->username)->update(array('last_login_ip' => $localIP,'last_login_datetime' => date('Y-m-d H:i:s')));
 
